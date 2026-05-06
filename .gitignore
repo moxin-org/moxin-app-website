@@ -1,7 +1,7 @@
-/target
-preferences.json
-data.*
+node_modules/
+.next/
+out/
+dist/
 .DS_Store
-.vscode
-/dist
-/wasmedge
+*.tsbuildinfo
+next-env.d.ts
