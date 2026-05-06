@@ -23,7 +23,7 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group">
           <Image
-            src="/moxin-logo.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/moxin-logo.png`}
             alt="Moxin"
             width={40}
             height={40}

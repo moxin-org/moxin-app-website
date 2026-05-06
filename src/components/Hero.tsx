@@ -106,7 +106,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/moxin-logo.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/moxin-logo.png`}
             alt="Moxin"
             width={140}
             height={140}
