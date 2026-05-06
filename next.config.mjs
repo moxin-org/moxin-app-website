@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/moxin-app-website' : '';
+const basePath = process.env.PAGES_BASE_PATH || '';
 
 const nextConfig = {
   output: 'export',

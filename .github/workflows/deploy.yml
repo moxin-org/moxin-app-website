@@ -28,7 +28,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          NODE_ENV: production
+          PAGES_BASE_PATH: /moxin-app-website
 
       - uses: actions/upload-pages-artifact@v3
         with:
