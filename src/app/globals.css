@@ -4,11 +4,27 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
+/* ── Dark theme (default) ── */
 :root {
   --seal-red: #C53030;
-  --ink: #0A0A0A;
-  --paper: #FAF6F0;
-  --gold: #D4A853;
+  --c-ink: 10 10 10;
+  --c-paper: 250 246 240;
+  --c-warm: 232 224 212;
+  --c-muted: 107 107 107;
+  --c-surface: 255 255 255;
+  --ink-hex: #0A0A0A;
+  --card-shadow: rgba(197, 48, 48, 0.1);
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --c-ink: 250 249 247;
+  --c-paper: 28 25 23;
+  --c-warm: 41 37 36;
+  --c-muted: 120 113 108;
+  --c-surface: 0 0 0;
+  --ink-hex: #FAF9F7;
+  --card-shadow: rgba(0, 0, 0, 0.08);
 }
 
 html {
@@ -16,8 +32,8 @@ html {
 }
 
 body {
-  background: var(--ink);
-  color: var(--paper);
+  background: rgb(var(--c-ink));
+  color: rgb(var(--c-paper));
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -36,9 +52,9 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(200, 180, 150, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(200, 180, 150, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(200, 180, 150, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgb(var(--c-surface) / 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgb(var(--c-surface) / 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgb(var(--c-surface) / 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: 1;
 }
@@ -90,10 +106,10 @@ body {
 /* Ink wash gradient backgrounds */
 .ink-wash {
   background:
-    radial-gradient(ellipse at 0% 0%, rgba(30, 30, 30, 1) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 100%, rgba(20, 20, 20, 1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(15, 15, 15, 1) 0%, transparent 70%),
-    var(--ink);
+    radial-gradient(ellipse at 0% 0%, rgb(var(--c-surface) / 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgb(var(--c-surface) / 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgb(var(--c-surface) / 0.04) 0%, transparent 70%),
+    rgb(var(--c-ink));
 }
 
 /* Decorative vertical line */
@@ -123,7 +139,7 @@ body {
 }
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(197, 48, 48, 0.1);
+  box-shadow: 0 20px 60px var(--card-shadow);
 }
 
 /* Custom scrollbar */
@@ -131,7 +147,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--ink);
+  background: rgb(var(--c-ink));
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(197, 48, 48, 0.4);

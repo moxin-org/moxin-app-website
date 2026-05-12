@@ -8,14 +8,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0A0A",
-        paper: "#FAF6F0",
+        ink: "rgb(var(--c-ink) / <alpha-value>)",
+        paper: "rgb(var(--c-paper) / <alpha-value>)",
+        warm: "rgb(var(--c-warm) / <alpha-value>)",
+        muted: "rgb(var(--c-muted) / <alpha-value>)",
+        surface: "rgb(var(--c-surface) / <alpha-value>)",
         seal: "#C53030",
         "seal-dark": "#9B2C2C",
         gold: "#D4A853",
         "gold-dark": "#B8942E",
-        warm: "#E8E0D4",
-        muted: "#6B6B6B",
       },
       fontFamily: {
         serif: ["Noto Serif", "Georgia", "serif"],

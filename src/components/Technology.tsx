@@ -3,35 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
-
-const techStack = [
-  {
-    name: "Rust",
-    description: "Systems language powering every layer",
-    detail: "Memory safety without garbage collection",
-  },
-  {
-    name: "Makepad",
-    description: "GPU-accelerated native UI framework",
-    detail: "Pure Rust, cross-platform rendering",
-  },
-  {
-    name: "OminiX MLX",
-    description: "Apple Silicon inference engine",
-    detail: "Metal GPU acceleration for ML models",
-  },
-  {
-    name: "Dora",
-    description: "Dataflow orchestration framework",
-    detail: "Connecting AI pipelines seamlessly",
-  },
-];
+import { useApp } from "@/context/AppContext";
 
 function TechCard({
   tech,
   index,
 }: {
-  tech: (typeof techStack)[0];
+  tech: { name: string; description: string; detail: string };
   index: number;
 }) {
   const ref = useRef(null);
@@ -40,12 +18,12 @@ function TechCard({
   return (
     <motion.div
       ref={ref}
-      className="relative p-8 border border-white/[0.06] rounded-sm bg-white/[0.02] group hover:border-seal/20 transition-colors"
+      className="relative p-8 border border-surface/[0.06] rounded-sm bg-surface/[0.02] group hover:border-seal/20 transition-colors"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
-      <span className="absolute top-4 right-4 font-serif text-4xl text-white/[0.04] font-bold">
+      <span className="absolute top-4 right-4 font-serif text-4xl text-surface/[0.04] font-bold">
         {String(index + 1).padStart(2, "0")}
       </span>
 
@@ -68,12 +46,13 @@ function TechCard({
 function ArchitectureDiagram() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const { t } = useApp();
 
   const layers = [
-    { label: "Applications", items: ["Moxin Studio", "Moxin Voice"], color: "seal" },
-    { label: "UI Framework", items: ["Makepad"], color: "gold" },
-    { label: "Inference", items: ["OminiX MLX", "OminiX API"], color: "seal" },
-    { label: "Runtime", items: ["Rust", "Apple Metal"], color: "gold" },
+    { label: t.tech.layers[0].label, items: ["Moxin Studio", "Moxin Voice"], color: "seal" },
+    { label: t.tech.layers[1].label, items: ["Makepad"], color: "gold" },
+    { label: t.tech.layers[2].label, items: ["OminiX MLX", "OminiX API"], color: "seal" },
+    { label: t.tech.layers[3].label, items: ["Rust", "Apple Metal"], color: "gold" },
   ];
 
   return (
@@ -125,6 +104,8 @@ function ArchitectureDiagram() {
 }
 
 export default function Technology() {
+  const { t } = useApp();
+
   return (
     <section id="technology" className="relative py-32 px-6 paper-texture">
       <div className="divider-ink mb-32" />
@@ -132,19 +113,18 @@ export default function Technology() {
       <div className="max-w-5xl mx-auto">
         <ScrollReveal className="text-center mb-20">
           <span className="text-base tracking-[0.3em] uppercase text-seal/60 block mb-5">
-            Technology
+            {t.tech.label}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-warm font-bold mb-8">
-            Forged in Rust
+            {t.tech.title}
           </h2>
           <p className="text-warm/60 max-w-2xl mx-auto text-xl font-light leading-relaxed">
-            A vertically integrated stack from metal to pixel. Every component
-            chosen for performance, every abstraction earned.
+            {t.tech.subtitle}
           </p>
         </ScrollReveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {techStack.map((tech, i) => (
+          {t.tech.stack.map((tech, i) => (
             <TechCard key={tech.name} tech={tech} index={i} />
           ))}
         </div>
