@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useApp } from "@/context/AppContext";
 
 function InkDrips() {
@@ -46,12 +46,8 @@ function FloatingSeals() {
           className="absolute opacity-[0.06] font-serif text-seal select-none pointer-events-none"
           style={{ left: seal.x, top: seal.y, fontSize: `${seal.size}px` }}
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 0.06, scale: 1, y: [0, -15, 0] }}
-          transition={{
-            opacity: { duration: 1, delay: seal.delay },
-            scale: { duration: 1, delay: seal.delay },
-            y: { duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: seal.delay },
-          }}
+          animate={{ opacity: 0.06, scale: 1 }}
+          transition={{ duration: 1, delay: seal.delay }}
         >
           {seal.char}
         </motion.div>
@@ -61,9 +57,6 @@ function FloatingSeals() {
 }
 
 export default function Hero() {
-  const { scrollYProgress } = useScroll();
-  const titleY = useTransform(scrollYProgress, [0, 0.3], [0, -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
   const { t } = useApp();
 
   return (
@@ -72,10 +65,10 @@ export default function Hero() {
       <FloatingSeals />
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] rounded-full bg-seal/[0.03] blur-[100px]" />
+        <div className="w-[800px] h-[800px] rounded-full bg-gradient-radial from-seal/[0.04] to-transparent" />
       </div>
 
-      <motion.div className="relative z-10 text-center px-6" style={{ y: titleY, opacity }}>
+      <motion.div className="relative z-10 text-center px-6">
         <motion.div
           className="mb-10 flex justify-center"
           initial={{ scale: 1.3, opacity: 0, rotate: -3 }}

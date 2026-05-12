@@ -57,7 +57,7 @@ export default function Navigation() {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 transition-all duration-300 ${
         scrolled
-          ? "bg-ink/95 border-b border-seal/10 backdrop-blur-xl"
+          ? "bg-ink/98 border-b border-seal/10"
           : "bg-transparent border-b border-transparent"
       }`}
     >

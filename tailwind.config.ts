@@ -18,6 +18,9 @@ const config: Config = {
         gold: "#D4A853",
         "gold-dark": "#B8942E",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
       fontFamily: {
         serif: ["Noto Serif", "Georgia", "serif"],
         sans: ["Inter", "system-ui", "sans-serif"],

@@ -143,56 +143,46 @@ export default function AppShowcase() {
 
         {/* ── Moxin Studio ── */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-seal/20 via-seal/5 to-transparent rounded-lg opacity-30 blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-seal/10 via-transparent to-transparent rounded-lg pointer-events-none" />
 
           <div className="relative grid md:grid-cols-2 gap-14 items-start">
             {/* Left: info + features */}
-            <div>
-              <ScrollReveal delay={0.1}>
-                <div className="flex items-center gap-5 mb-8">
-                  <SealStamp text="坊" size="lg" />
-                  <div>
-                    <h3 className="font-serif text-2xl md:text-3xl text-warm font-bold">
-                      {t.apps.studio.name}
-                    </h3>
-                    <p className="text-seal text-lg mt-2">{t.apps.studio.tagline}</p>
-                  </div>
+            <ScrollReveal>
+              <div className="flex items-center gap-5 mb-8">
+                <SealStamp text="坊" size="lg" />
+                <div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-warm font-bold">
+                    {t.apps.studio.name}
+                  </h3>
+                  <p className="text-seal text-lg mt-2">{t.apps.studio.tagline}</p>
                 </div>
-              </ScrollReveal>
+              </div>
 
-              <ScrollReveal delay={0.2}>
-                <p className="text-warm/60 font-light leading-relaxed text-xl mb-8">
-                  {t.apps.studio.description}
-                </p>
-              </ScrollReveal>
+              <p className="text-warm/60 font-light leading-relaxed text-xl mb-8">
+                {t.apps.studio.description}
+              </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {t.apps.studio.features.map((feature, i) => (
-                  <ScrollReveal key={i} delay={0.25 + i * 0.06}>
-                    <div className="feature-card p-4 rounded-sm bg-surface/[0.02] border border-surface/[0.04] hover:border-seal/20">
-                      <div className="flex items-start gap-3">
-                        <span className="text-xl mt-0.5">{featureIcons[i]}</span>
-                        <div>
-                          <h4 className="text-warm text-base font-medium mb-0.5">{feature.title}</h4>
-                          <p className="text-warm/50 text-sm font-light leading-relaxed">{feature.detail}</p>
-                        </div>
+                  <div key={i} className="feature-card p-4 rounded-sm bg-surface/[0.02] border border-surface/[0.04] hover:border-seal/20">
+                    <div className="flex items-start gap-3">
+                      <span className="text-xl mt-0.5">{featureIcons[i]}</span>
+                      <div>
+                        <h4 className="text-warm text-base font-medium mb-0.5">{feature.title}</h4>
+                        <p className="text-warm/50 text-sm font-light leading-relaxed">{feature.detail}</p>
                       </div>
                     </div>
-                  </ScrollReveal>
+                  </div>
                 ))}
               </div>
 
-              <ScrollReveal delay={0.5}>
-                <GitHubButton href="https://github.com/moxin-org/Moxin-Studio" label={t.apps.viewOnGithub} />
-              </ScrollReveal>
-            </div>
+              <GitHubButton href="https://github.com/moxin-org/Moxin-Studio" label={t.apps.viewOnGithub} />
+            </ScrollReveal>
 
             {/* Right: screenshots */}
-            <div>
-              <ScrollReveal delay={0.2}>
-                <ScreenshotGallery />
-              </ScrollReveal>
-            </div>
+            <ScrollReveal delay={0.15}>
+              <ScreenshotGallery />
+            </ScrollReveal>
           </div>
         </div>
 
@@ -200,49 +190,41 @@ export default function AppShowcase() {
 
         {/* ── Moxin Voice ── */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-gold/5 to-transparent rounded-lg opacity-30 blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent rounded-lg pointer-events-none" />
 
           <div className="relative grid md:grid-cols-2 gap-14 items-start">
             {/* Left: info + features */}
-            <div className="md:order-2">
-              <ScrollReveal delay={0.1}>
-                <div className="flex items-center gap-5 mb-8">
-                  <SealStamp text="声" size="lg" />
-                  <div>
-                    <h3 className="font-serif text-2xl md:text-3xl text-warm font-bold">
-                      {t.apps.voice.name}
-                    </h3>
-                    <p className="text-gold text-lg mt-2">{t.apps.voice.tagline}</p>
-                  </div>
+            <ScrollReveal className="md:order-2">
+              <div className="flex items-center gap-5 mb-8">
+                <SealStamp text="声" size="lg" />
+                <div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-warm font-bold">
+                    {t.apps.voice.name}
+                  </h3>
+                  <p className="text-gold text-lg mt-2">{t.apps.voice.tagline}</p>
                 </div>
-              </ScrollReveal>
+              </div>
 
-              <ScrollReveal delay={0.2}>
-                <p className="text-warm/60 font-light leading-relaxed text-xl mb-8">
-                  {t.apps.voice.description}
-                </p>
-              </ScrollReveal>
+              <p className="text-warm/60 font-light leading-relaxed text-xl mb-8">
+                {t.apps.voice.description}
+              </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {t.apps.voice.features.map((feature, i) => (
-                  <ScrollReveal key={i} delay={0.25 + i * 0.06}>
-                    <div className="feature-card p-4 rounded-sm bg-surface/[0.02] border border-surface/[0.04] hover:border-gold/20">
-                      <div className="flex items-start gap-3">
-                        <span className="text-xl mt-0.5">{voiceIcons[i]}</span>
-                        <div>
-                          <h4 className="text-warm text-base font-medium mb-0.5">{feature.title}</h4>
-                          <p className="text-warm/50 text-sm font-light leading-relaxed">{feature.detail}</p>
-                        </div>
+                  <div key={i} className="feature-card p-4 rounded-sm bg-surface/[0.02] border border-surface/[0.04] hover:border-gold/20">
+                    <div className="flex items-start gap-3">
+                      <span className="text-xl mt-0.5">{voiceIcons[i]}</span>
+                      <div>
+                        <h4 className="text-warm text-base font-medium mb-0.5">{feature.title}</h4>
+                        <p className="text-warm/50 text-sm font-light leading-relaxed">{feature.detail}</p>
                       </div>
                     </div>
-                  </ScrollReveal>
+                  </div>
                 ))}
               </div>
 
-              <ScrollReveal delay={0.5}>
-                <GitHubButton href="https://github.com/moxin-org/Moxin-Voice" label={t.apps.viewOnGithub} />
-              </ScrollReveal>
-            </div>
+              <GitHubButton href="https://github.com/moxin-org/Moxin-Voice" label={t.apps.viewOnGithub} />
+            </ScrollReveal>
 
             {/* Right: video (rendered left via order) */}
             <div className="md:order-1">
