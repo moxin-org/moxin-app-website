@@ -55,10 +55,10 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 transition-all duration-300 backdrop-blur-md bg-ink/90 border-b ${
         scrolled
-          ? "bg-ink/98 border-b border-seal/10"
-          : "bg-transparent border-b border-transparent"
+          ? "border-seal/10 shadow-lg shadow-black/20"
+          : "border-surface/5 shadow-md shadow-black/10"
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">

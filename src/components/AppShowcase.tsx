@@ -98,7 +98,7 @@ function AutoplayVideo() {
           playsInline
           preload="metadata"
         >
-          <source src="https://moxin-ai.org/resources/moxin-voice-demo-en.mp4" type="video/mp4" />
+          <source src={`${basePath}/videos/moxin-studio-demo.mp4`} type="video/mp4" />
         </video>
       </div>
     </div>
