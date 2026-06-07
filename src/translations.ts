@@ -40,38 +40,36 @@ const translations = {
       subtitle:
         "Native AI applications built with the Moxin stack — each one a testament to what's possible when performance meets purpose.",
       viewOnGithub: "View on GitHub",
+      hintOverview: "▶ Overview playing — click a feature to explore",
+      hintFeature: "Click the title to replay the overview",
       studio: {
         name: "Moxin Studio",
         tagline: "Your Complete Local AI Workbench",
+        seal: "坊",
         description:
           "A native desktop application that runs LLMs, generates images, clones voices, and transcribes speech — all locally on Apple Silicon. No cloud, no Python, no waiting.",
-        features: [
-          { title: "Voice I/O", detail: "Speech-to-text, TTS & voice cloning" },
-          { title: "Image Generation", detail: "FLUX, Z-Image-Turbo, Qwen-Image" },
-          { title: "Model Hub", detail: "20+ models, one-click download" },
-          { title: "MCP Integration", detail: "Model Context Protocol for tool use" },
-          { title: "Multi-Model Chat", detail: "Qwen3, GLM-4, Mistral, DeepSeek" },
-          { title: "Video Generation", detail: "Wan2.2 5B for local video synthesis" },
-        ],
-        screenshots: [
-          { label: "Model Management", desc: "On-device models, one-click load" },
-          { label: "Multi-Model Chat", desc: "Local LLM conversation with reasoning" },
-          { label: "Model Hub", desc: "Browse, download & run locally" },
-          { label: "Provider Settings", desc: "Connect OpenAI, Anthropic & more" },
+        functions: [
+          { seal: "话", label: "Multi-Model Chat", desc: "Qwen3, GLM-4, Mistral & Mixtral — reasoning included, fully local." },
+          { seal: "视", label: "Vision Models", desc: "Understand images with Qwen3-VL and Moxin-7B." },
+          { seal: "绘", label: "Image Generation", desc: "FLUX.2-klein, Z-Image-Turbo and Qwen-Image, on device." },
+          { seal: "声", label: "Voice I/O", desc: "Speech-to-text and text-to-speech with voice cloning." },
+          { seal: "库", label: "Model Hub", desc: "Discover, download and run models from the app." },
+          { seal: "联", label: "MCP Tools", desc: "Model Context Protocol for external tool use." },
         ],
       },
       voice: {
         name: "Moxin Voice",
-        tagline: "GPU-Accelerated Speech Synthesis",
+        tagline: "Real-Time Translation & Voice Synthesis",
+        seal: "声",
         description:
-          "Clone any voice from just 5 seconds of audio. Generate natural speech in Chinese, English, Japanese, and Korean. Live translation with real-time bilingual subtitles.",
-        features: [
-          { title: "Zero-Shot Cloning", detail: "Clone voices from 5–30s of audio" },
-          { title: "Multilingual TTS", detail: "9 preset voices across 4 languages" },
-          { title: "Live Translation", detail: "Real-time bilingual subtitles" },
-          { title: "Waveform Visualization", detail: "Real-time audio visualization" },
-          { title: "Audio Export", detail: "High-quality WAV export" },
-          { title: "Native Dark Mode", detail: "GPU-rendered bilingual UI" },
+          "Live translation with real-time bilingual subtitles at its core. Clone any voice from seconds of audio and generate natural speech across Chinese, English, Japanese, and Korean.",
+        functions: [
+          { seal: "仿", label: "Zero-Shot Cloning", desc: "Clone any voice with 5–30 seconds of audio." },
+          { seal: "音", label: "Text to Speech", desc: "9 preset voices across Chinese, English, Japanese and Korean." },
+          { seal: "译", label: "Live Translation", desc: "Real-time subtitles from microphone or system audio." },
+          { seal: "录", label: "Audio Recording", desc: "Real-time recording with waveform visualization." },
+          { seal: "听", label: "ASR Transcription", desc: "Automatic transcription for cloning reference audio." },
+          { seal: "存", label: "WAV Export", desc: "Save generated speech as high-quality WAV files." },
         ],
       },
     },
@@ -145,38 +143,36 @@ const translations = {
       subtitle:
         "基于 Moxin 技术栈构建的原生 AI 应用 — 每一款都是性能与目标完美结合的典范。",
       viewOnGithub: "在 GitHub 上查看",
+      hintOverview: "▶ 正在播放概览 — 点击任一功能查看详情",
+      hintFeature: "点击标题可重新播放概览",
       studio: {
         name: "Moxin Studio",
         tagline: "本地 AI 全能工作台",
+        seal: "坊",
         description:
           "原生桌面应用，可在 Apple Silicon 上本地运行大语言模型、生成图像、克隆语音和语音转文字。无需云端、无需 Python、即开即用。",
-        features: [
-          { title: "语音 I/O", detail: "语音转文字、文字转语音和语音克隆" },
-          { title: "图像生成", detail: "FLUX、Z-Image-Turbo、Qwen-Image" },
-          { title: "模型中心", detail: "20+ 模型，一键下载" },
-          { title: "MCP 集成", detail: "模型上下文协议，扩展工具能力" },
-          { title: "多模型对话", detail: "Qwen3、GLM-4、Mistral、DeepSeek" },
-          { title: "视频生成", detail: "Wan2.2 5B 本地视频合成" },
-        ],
-        screenshots: [
-          { label: "模型管理", desc: "设备端模型，一键加载" },
-          { label: "多模型对话", desc: "本地大语言模型对话与推理" },
-          { label: "模型中心", desc: "浏览、下载，本地运行" },
-          { label: "提供商设置", desc: "接入 OpenAI、Anthropic 等服务" },
+        functions: [
+          { seal: "话", label: "多模型对话", desc: "Qwen3、GLM-4、Mistral、Mixtral，支持推理，全程本地。" },
+          { seal: "视", label: "视觉模型", desc: "用 Qwen3-VL、Moxin-7B 理解图像内容。" },
+          { seal: "绘", label: "图像生成", desc: "本地运行 FLUX.2-klein、Z-Image-Turbo、Qwen-Image。" },
+          { seal: "声", label: "语音 I/O", desc: "语音转文字、文字转语音，支持声音克隆。" },
+          { seal: "库", label: "模型中心", desc: "在应用内发现、下载并运行模型。" },
+          { seal: "联", label: "MCP 工具", desc: "通过模型上下文协议接入外部工具。" },
         ],
       },
       voice: {
         name: "Moxin Voice",
-        tagline: "GPU 加速语音合成",
+        tagline: "实时翻译与语音合成",
+        seal: "声",
         description:
-          "仅需 5 秒音频即可克隆任何声音。支持中、英、日、韩四语自然语音生成。实时翻译配双语字幕。",
-        features: [
-          { title: "零样本克隆", detail: "5–30 秒参考音频即可克隆" },
-          { title: "多语言 TTS", detail: "9 种预设语音，4 种语言" },
-          { title: "实时翻译", detail: "实时双语字幕" },
-          { title: "波形可视化", detail: "实时音频波形显示" },
-          { title: "音频导出", detail: "高品质 WAV 导出" },
-          { title: "原生暗色模式", detail: "GPU 渲染双语界面" },
+          "以实时翻译、双语字幕为核心。仅需数秒音频即可克隆任意声音，支持中、英、日、韩四语自然语音生成。",
+        functions: [
+          { seal: "仿", label: "零样本克隆", desc: "仅需 5–30 秒音频即可克隆任意声音。" },
+          { seal: "音", label: "文字转语音", desc: "9 种预设语音，覆盖中、英、日、韩四语。" },
+          { seal: "译", label: "实时翻译", desc: "对麦克风或系统音频实时生成双语字幕。" },
+          { seal: "录", label: "实时录音", desc: "内置实时录音，带波形可视化。" },
+          { seal: "听", label: "ASR 转写", desc: "自动转写克隆所需的参考音频。" },
+          { seal: "存", label: "WAV 导出", desc: "将生成的语音保存为高品质 WAV 文件。" },
         ],
       },
     },
@@ -211,12 +207,8 @@ const translations = {
   },
 };
 
-interface Feature {
-  title: string;
-  detail: string;
-}
-
-interface Screenshot {
+interface AppFunction {
+  seal: string;
   label: string;
   desc: string;
 }
@@ -241,18 +233,21 @@ export interface Translations {
     title: string;
     subtitle: string;
     viewOnGithub: string;
+    hintOverview: string;
+    hintFeature: string;
     studio: {
       name: string;
       tagline: string;
+      seal: string;
       description: string;
-      features: Feature[];
-      screenshots: Screenshot[];
+      functions: AppFunction[];
     };
     voice: {
       name: string;
       tagline: string;
+      seal: string;
       description: string;
-      features: Feature[];
+      functions: AppFunction[];
     };
   };
   tech: {

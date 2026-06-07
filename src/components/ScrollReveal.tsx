@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useStaticRender } from "@/hooks/useStaticRender";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -19,7 +20,27 @@ export default function ScrollReveal({
   distance = 50,
 }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const staticRender = useStaticRender();
+
+  // Safety net: if the IntersectionObserver never fires (reduced-motion,
+  // programmatic scroll, prerender/headless contexts), reveal anyway after a
+  // short delay so content is never stuck invisible. When this path is taken we
+  // render a plain element — not framer-motion's animate — so visibility never
+  // depends on the animation loop running.
+  const [fallback, setFallback] = useState(false);
+  useEffect(() => {
+    const id = setTimeout(() => setFallback(true), 1000);
+    return () => clearTimeout(id);
+  }, []);
+
+  if (staticRender || (fallback && !inView)) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
 
   const initialPosition = {
     up: { y: distance, x: 0 },
@@ -37,7 +58,7 @@ export default function ScrollReveal({
         ...initialPosition[direction],
       }}
       animate={
-        isInView
+        inView
           ? { opacity: 1, x: 0, y: 0 }
           : { opacity: 0, ...initialPosition[direction] }
       }

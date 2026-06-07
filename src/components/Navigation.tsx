@@ -55,7 +55,7 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 transition-all duration-300 backdrop-blur-md bg-ink/90 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-5 transition-all duration-300 backdrop-blur-md bg-ink/90 border-b ${
         scrolled
           ? "border-seal/10 shadow-lg shadow-black/20"
           : "border-surface/5 shadow-md shadow-black/10"
@@ -68,6 +68,7 @@ export default function Navigation() {
             alt="Moxin"
             width={40}
             height={40}
+            priority
             className="transition-transform group-hover:scale-105"
           />
           <span className="font-serif text-2xl font-bold tracking-wider text-warm">
@@ -94,7 +95,7 @@ export default function Navigation() {
             href="https://discord.gg/MzzC64xfu6"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base px-5 py-2 border border-seal/40 text-seal hover:bg-seal hover:text-white transition-all rounded-sm"
+            className="text-base px-5 py-2 border border-seal/40 text-seal hover:bg-seal hover:text-white transition-all rounded-lg"
           >
             Discord
           </a>

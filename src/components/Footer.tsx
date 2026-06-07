@@ -7,8 +7,8 @@ export default function Footer() {
   const { t } = useApp();
 
   return (
-    <footer className="relative py-16 px-6 border-t border-surface/[0.04]">
-      <div className="max-w-5xl mx-auto">
+    <footer className="relative py-16 px-6 md:px-8 border-t border-surface/[0.04]">
+      <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-3">
             <Image
@@ -22,7 +22,7 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center gap-10">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             <a
               href="https://github.com/moxin-org/Moxin-Studio"
               target="_blank"

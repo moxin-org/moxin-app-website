@@ -18,12 +18,13 @@ function TechCard({
   return (
     <motion.div
       ref={ref}
-      className="relative p-8 border border-surface/[0.06] rounded-sm bg-surface/[0.02] group hover:border-seal/20 transition-colors"
+      className="feature-card stamp-frame relative p-8 bg-surface/[0.025] group transition-colors overflow-hidden"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
-      <span className="absolute top-4 right-4 font-serif text-4xl text-surface/[0.04] font-bold">
+      {/* rounded-seal index chip */}
+      <span className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-xl border-[1.5px] border-seal/15 font-serif text-base text-seal/30 font-bold">
         {String(index + 1).padStart(2, "0")}
       </span>
 
@@ -65,15 +66,15 @@ function ArchitectureDiagram() {
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.5, delay: i * 0.15 }}
         >
-          <div className="flex items-center gap-6">
-            <span className="text-sm text-warm/40 w-28 text-right font-light shrink-0">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+            <span className="text-xs sm:text-sm text-warm/40 sm:w-28 text-left sm:text-right font-light shrink-0 uppercase sm:normal-case tracking-wider sm:tracking-normal">
               {layer.label}
             </span>
             <div className="flex-1 flex gap-3">
               {layer.items.map((item) => (
                 <div
                   key={item}
-                  className={`flex-1 py-3 px-4 text-center text-sm rounded-sm border ${
+                  className={`flex-1 py-3 px-4 text-center text-sm rounded-xl border ${
                     layer.color === "seal"
                       ? "border-seal/20 text-seal/80 bg-seal/[0.05]"
                       : "border-gold/20 text-gold/80 bg-gold/[0.05]"
@@ -86,7 +87,7 @@ function ArchitectureDiagram() {
           </div>
           {i < layers.length - 1 && (
             <div className="flex items-center gap-6">
-              <span className="w-28" />
+              <span className="hidden sm:block w-28" />
               <div className="flex-1 flex justify-center py-1">
                 <motion.div
                   className="w-[1px] h-4 bg-warm/10"
@@ -107,10 +108,10 @@ export default function Technology() {
   const { t } = useApp();
 
   return (
-    <section id="technology" className="relative py-32 px-6 paper-texture">
+    <section id="technology" className="relative py-32 px-6 md:px-8 paper-texture">
       <div className="divider-ink mb-32" />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center mb-20">
           <span className="text-base tracking-[0.3em] uppercase text-seal/60 block mb-5">
             {t.tech.label}
@@ -123,7 +124,7 @@ export default function Technology() {
           </p>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.tech.stack.map((tech, i) => (
             <TechCard key={tech.name} tech={tech} index={i} />
           ))}
