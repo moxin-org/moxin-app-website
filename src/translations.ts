@@ -54,10 +54,10 @@ const translations = {
           { title: "Video Generation", detail: "Wan2.2 5B for local video synthesis" },
         ],
         screenshots: [
-          { label: "Image Generation", desc: "FLUX, Z-Image-Turbo, Qwen-Image" },
-          { label: "Vision AI", desc: "Vision Language Model analysis" },
-          { label: "Model Hub", desc: "20+ models, one-click download" },
-          { label: "Session History", desc: "Searchable conversation history" },
+          { label: "Model Management", desc: "On-device models, one-click load" },
+          { label: "Multi-Model Chat", desc: "Local LLM conversation with reasoning" },
+          { label: "Model Hub", desc: "Browse, download & run locally" },
+          { label: "Provider Settings", desc: "Connect OpenAI, Anthropic & more" },
         ],
       },
       voice: {
@@ -159,10 +159,10 @@ const translations = {
           { title: "视频生成", detail: "Wan2.2 5B 本地视频合成" },
         ],
         screenshots: [
-          { label: "图像生成", desc: "FLUX、Z-Image-Turbo、Qwen-Image" },
-          { label: "视觉 AI", desc: "视觉语言模型分析" },
-          { label: "模型中心", desc: "20+ 模型，一键下载" },
-          { label: "会话历史", desc: "可搜索的对话记录" },
+          { label: "模型管理", desc: "设备端模型，一键加载" },
+          { label: "多模型对话", desc: "本地大语言模型对话与推理" },
+          { label: "模型中心", desc: "浏览、下载，本地运行" },
+          { label: "提供商设置", desc: "接入 OpenAI、Anthropic 等服务" },
         ],
       },
       voice: {
