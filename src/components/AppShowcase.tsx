@@ -34,22 +34,22 @@ const VOICE_VIDEO: Media = { kind: "video", src: `${basePath}/videos/moxin-voice
 
 // Order matches t.apps.studio.functions: 话 视 绘 声 库 联
 const studioFeatureMedia: Media[] = [
-  { kind: "image", src: `${basePath}/images/moxin-studio/screenshot-vlm.png` },      // Multi-Model Chat
-  { kind: "image", src: `${basePath}/images/moxin-studio/screenshot-vlm.png` },      // Vision Models (VLM "describe the image")
-  { kind: "placeholder" },                                                            // Image Generation  ⚠️ need: public/images/moxin-studio/image-gen.png
-  { kind: "placeholder" },                                                            // Voice I/O         ⚠️ need: public/images/moxin-studio/voice-io.png
+  { kind: "image", src: `${basePath}/images/moxin-studio/chat.png` },      // Multi-Model Chat
+  { kind: "image", src: `${basePath}/images/moxin-studio/vlm.png` },      // Vision Models (VLM "describe the image")
+  { kind: "image", src: `${basePath}/images/moxin-studio/image-gen.png` },                                                            // Image Generation  ⚠️ need: public/images/moxin-studio/image-gen.png
+  { kind: "image", src: `${basePath}/images/moxin-studio/session-history.png` },                                                            // Voice I/O         ⚠️ need: public/images/moxin-studio/voice-io.png
   { kind: "image", src: `${basePath}/images/moxin-studio/screenshot-model-hub.png` },// Model Hub
-  { kind: "image", src: `${basePath}/images/moxin-studio/screenshot-history.png` },  // MCP Tools (providers/settings)
+  { kind: "image", src: `${basePath}/images/moxin-studio/provider.png` },  // MCP Tools (providers/settings)
 ];
 
-// Order matches t.apps.voice.functions: 仿 音 译 录 听 存
+// Order matches t.apps.voice.functions: 仿 音 译 库 记 存
 const voiceFeatureMedia: Media[] = [
-  { kind: "placeholder" },                                                            // Zero-Shot Cloning ⚠️ need: public/images/moxin-voice/clone.png
-  { kind: "placeholder" },                                                            // Text to Speech    ⚠️ need: public/images/moxin-voice/tts.png
+  { kind: "image", src: `${basePath}/images/moxin-voice/clone.png` },                                                            // Zero-Shot Cloning ⚠️ need: public/images/moxin-voice/clone.png
+  { kind: "image", src: `${basePath}/images/moxin-voice/tts.png` },                                                            // Text to Speech    ⚠️ need: public/images/moxin-voice/tts.png
   { kind: "image", src: `${basePath}/images/moxin-voice/translate.png` },            // Live Translation
-  { kind: "placeholder" },                                                            // Audio Recording   ⚠️ need: public/images/moxin-voice/record.png
-  { kind: "placeholder" },                                                            // ASR Transcription ⚠️ need: public/images/moxin-voice/asr.png
-  { kind: "placeholder" },                                                            // WAV Export        ⚠️ need: public/images/moxin-voice/export.png
+  { kind: "image", src: `${basePath}/images/moxin-voice/library.png` },                                                            // Audio Recording   ⚠️ need: public/images/moxin-voice/record.png
+  { kind: "image", src: `${basePath}/images/moxin-voice/history.png` },                                                            // ASR Transcription ⚠️ need: public/images/moxin-voice/asr.png
+  { kind: "image", src: `${basePath}/images/moxin-voice/export.png` },                                                            // WAV Export        ⚠️ need: public/images/moxin-voice/export.png
 ];
 
 type Accent = "seal" | "gold";
