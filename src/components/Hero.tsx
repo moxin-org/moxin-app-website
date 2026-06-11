@@ -60,7 +60,7 @@ export default function Hero() {
   const { t } = useApp();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden ink-wash">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden ink-wash pt-24 md:pt-28">
       <InkDrips />
       <FloatingSeals />
 

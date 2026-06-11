@@ -10,10 +10,10 @@ export default function Philosophy() {
   const { t } = useApp();
 
   return (
-    <section className="relative py-32 px-6">
+    <section className="relative py-32 px-6 md:px-8">
       <div className="divider-ink mb-32" />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center mb-20">
           <span className="text-base tracking-[0.3em] uppercase text-seal/60 block mb-5">
             {t.philosophy.label}
@@ -26,10 +26,10 @@ export default function Philosophy() {
           </p>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-14 md:gap-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
           {t.philosophy.pillars.map((pillar, i) => (
             <ScrollReveal key={seals[i]} delay={i * 0.15}>
-              <div className="text-center group">
+              <div className="stamp-frame text-center group h-full px-7 py-10 bg-surface/[0.015] transition-colors duration-300 hover:bg-surface/[0.03]">
                 <div className="mb-8 flex justify-center">
                   <SealStamp text={seals[i]} size="lg" />
                 </div>

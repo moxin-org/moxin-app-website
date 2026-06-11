@@ -59,31 +59,84 @@ body {
   z-index: 1;
 }
 
-/* Seal stamp styling */
+/* ─────────────────────────────────────────────
+   Seal stamp — rounded double-line stamp echoing the Moxin logo.
+   Outer thick ring + inner hairline ring, rounded corners, ink-pressed feel.
+   ───────────────────────────────────────────── */
 .seal-stamp {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid var(--seal-red);
+  border: 2.5px solid var(--seal-red);
+  border-radius: 0.85em;                 /* rounded-square like the logo */
   color: var(--seal-red);
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.7rem;
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   letter-spacing: 0.05em;
   line-height: 1;
+  background:
+    radial-gradient(ellipse at 30% 25%, rgb(197 48 48 / 0.06), transparent 60%);
 }
+/* inner hairline ring — the signature "double border" of a carved seal */
+.seal-stamp::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--seal-red);
+  border-radius: 0.6em;
+  opacity: 0.5;
+  pointer-events: none;
+}
+/* faint ink-residue speckle for an authentic stamped texture */
 .seal-stamp::before {
   content: '';
   position: absolute;
-  inset: -1px;
+  inset: 0;
+  border-radius: inherit;
   background:
-    radial-gradient(circle at 15% 25%, transparent 2px, var(--seal-red) 2px, var(--seal-red) 3px, transparent 3px),
-    radial-gradient(circle at 85% 75%, transparent 1px, var(--seal-red) 1px, var(--seal-red) 2px, transparent 2px),
-    radial-gradient(circle at 50% 10%, transparent 1.5px, var(--seal-red) 1.5px, var(--seal-red) 2.5px, transparent 2.5px);
-  opacity: 0.15;
+    radial-gradient(circle at 18% 28%, var(--seal-red) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 82% 72%, var(--seal-red) 0 0.8px, transparent 1.3px),
+    radial-gradient(circle at 55% 12%, var(--seal-red) 0 0.7px, transparent 1.2px),
+    radial-gradient(circle at 40% 88%, var(--seal-red) 0 0.6px, transparent 1px);
+  opacity: 0.12;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Gold variant for Moxin Voice */
+.seal-stamp.seal-gold {
+  border-color: var(--gold, #D4A853);
+  color: var(--gold, #D4A853);
+  background: radial-gradient(ellipse at 30% 25%, rgb(212 168 83 / 0.07), transparent 60%);
+}
+.seal-stamp.seal-gold::after { border-color: var(--gold, #D4A853); }
+.seal-stamp.seal-gold::before {
+  background:
+    radial-gradient(circle at 18% 28%, var(--gold, #D4A853) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 82% 72%, var(--gold, #D4A853) 0 0.8px, transparent 1.3px),
+    radial-gradient(circle at 55% 12%, var(--gold, #D4A853) 0 0.7px, transparent 1.2px),
+    radial-gradient(circle at 40% 88%, var(--gold, #D4A853) 0 0.6px, transparent 1px);
+}
+
+/* Generic "stamped frame" — rounded double-ring container for cards/media,
+   reusing the seal language across the whole UI. */
+.stamp-frame {
+  position: relative;
+  border: 1.5px solid rgb(197 48 48 / 0.22);
+  border-radius: 1rem;
+}
+.stamp-frame::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgb(197 48 48 / 0.12);
+  border-radius: 0.75rem;
   pointer-events: none;
 }
+.stamp-frame.stamp-gold { border-color: rgb(212 168 83 / 0.22); }
+.stamp-frame.stamp-gold::after { border-color: rgb(212 168 83 / 0.14); }
 
 /* Brush stroke underline */
 .brush-underline {
@@ -131,6 +184,15 @@ body {
   background: linear-gradient(to bottom, var(--seal-red), transparent);
   opacity: 0.15;
   border-radius: 0 0 1px 1px;
+}
+
+/* Media panel swap — one-shot fade+zoom on mount (keyframes, not transition) */
+@keyframes mediaFadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.media-fade-in {
+  animation: mediaFadeIn 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /* Feature card hover */
