@@ -32,24 +32,24 @@ type Media =
 const STUDIO_VIDEO: Media = { kind: "video", src: `${basePath}/videos/moxin-studio-demo.mp4` };
 const VOICE_VIDEO: Media = { kind: "video", src: `${basePath}/videos/moxin-voice-translate.mp4` };
 
-// Order matches t.apps.studio.functions: 话 视 绘 声 库 联
+// Order matches t.apps.studio.functions: 话 视 绘 记 库 联
 const studioFeatureMedia: Media[] = [
-  { kind: "image", src: `${basePath}/images/moxin-studio/chat.png` },      // Multi-Model Chat
-  { kind: "image", src: `${basePath}/images/moxin-studio/vlm.png` },      // Vision Models (VLM "describe the image")
-  { kind: "image", src: `${basePath}/images/moxin-studio/image-gen.png` },                                                            // Image Generation  ⚠️ need: public/images/moxin-studio/image-gen.png
-  { kind: "image", src: `${basePath}/images/moxin-studio/session-history.png` },                                                            // Voice I/O         ⚠️ need: public/images/moxin-studio/voice-io.png
+  { kind: "image", src: `${basePath}/images/moxin-studio/chat.png` },                 // Multi-Model Chat
+  { kind: "image", src: `${basePath}/images/moxin-studio/vlm.png` },                  // Vision Models
+  { kind: "image", src: `${basePath}/images/moxin-studio/image-gen.png` },            // Image Generation
+  { kind: "image", src: `${basePath}/images/moxin-studio/session-history.png` },      // Session History
   { kind: "image", src: `${basePath}/images/moxin-studio/screenshot-model-hub.png` },// Model Hub
-  { kind: "image", src: `${basePath}/images/moxin-studio/provider.png` },  // MCP Tools (providers/settings)
+  { kind: "image", src: `${basePath}/images/moxin-studio/provider.png` },             // Multi-Providers
 ];
 
 // Order matches t.apps.voice.functions: 仿 音 译 库 记 存
 const voiceFeatureMedia: Media[] = [
-  { kind: "image", src: `${basePath}/images/moxin-voice/clone.png` },                                                            // Zero-Shot Cloning ⚠️ need: public/images/moxin-voice/clone.png
-  { kind: "image", src: `${basePath}/images/moxin-voice/tts.png` },                                                            // Text to Speech    ⚠️ need: public/images/moxin-voice/tts.png
-  { kind: "image", src: `${basePath}/images/moxin-voice/translate.png` },            // Live Translation
-  { kind: "image", src: `${basePath}/images/moxin-voice/library.png` },                                                            // Audio Recording   ⚠️ need: public/images/moxin-voice/record.png
-  { kind: "image", src: `${basePath}/images/moxin-voice/history.png` },                                                            // ASR Transcription ⚠️ need: public/images/moxin-voice/asr.png
-  { kind: "image", src: `${basePath}/images/moxin-voice/export.png` },                                                            // WAV Export        ⚠️ need: public/images/moxin-voice/export.png
+  { kind: "image", src: `${basePath}/images/moxin-voice/clone.png` },                 // Zero-Shot Cloning
+  { kind: "image", src: `${basePath}/images/moxin-voice/tts.png` },                   // Text to Speech
+  { kind: "image", src: `${basePath}/images/moxin-voice/translate.png` },             // Live Translation
+  { kind: "image", src: `${basePath}/images/moxin-voice/library.png` },               // Voice Library
+  { kind: "image", src: `${basePath}/images/moxin-voice/history.png` },               // History
+  { kind: "image", src: `${basePath}/images/moxin-voice/export.png` },                // WAV Export
 ];
 
 type Accent = "seal" | "gold";
@@ -119,6 +119,7 @@ function AppBlock({
   hintFeature,
   accent,
   mediaSide,
+  mediaPad = false,
 }: {
   appName: string;
   seal: string;
@@ -133,6 +134,7 @@ function AppBlock({
   hintFeature: string;
   accent: Accent;
   mediaSide: "left" | "right";
+  mediaPad?: boolean;
 }) {
   // active = -1 → overview video; 0..n → that feature's media
   const [active, setActive] = useState(-1);
@@ -143,18 +145,19 @@ function AppBlock({
   const accentText = accent === "seal" ? "text-seal" : "text-gold";
   const stampGold = accent === "gold" ? "stamp-gold" : "";
 
-  /* ── stage (video / image / placeholder), nothing cropped ── */
+  /* ── stage (video / image / placeholder), nothing cropped ──
+       Just a clean seal-styled frame around the media — no title bar, so it
+       never duplicates the macOS chrome the screenshots already carry.
+
+       `mediaPad` (Voice): the screenshots are full-bleed, so we inset them
+       to leave breathing room inside the frame. We keep object-contain so the
+       whole screenshot is shown — nothing cropped, and the rounded corners of
+       the screenshot itself stay intact. Studio screenshots sit flush. */
+  const innerClass = mediaPad ? "absolute inset-4 sm:inset-6" : "absolute inset-0";
   const stage = (
     <div className={`stamp-frame ${stampGold} overflow-hidden bg-ink/60 backdrop-blur-sm shadow-2xl shadow-black/40`}>
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-surface/[0.06] bg-surface/[0.02]">
-        <span className="w-3 h-3 rounded-full bg-[#FF5F57]/80" />
-        <span className="w-3 h-3 rounded-full bg-[#FEBC2E]/80" />
-        <span className="w-3 h-3 rounded-full bg-[#28C840]/80" />
-        <span className="ml-3 text-xs tracking-wide text-warm/40 font-medium">{currentLabel}</span>
-      </div>
-
       <div className="relative aspect-[3/2] bg-ink">
-        <div key={active} className="absolute inset-0 media-fade-in">
+        <div key={active} className={`${innerClass} media-fade-in`}>
           {current.kind === "video" ? (
             <video
               key={current.src}
@@ -343,6 +346,7 @@ export default function AppShowcase() {
             hintFeature={t.apps.hintFeature}
             accent="gold"
             mediaSide="left"
+            mediaPad
           />
         </div>
       </div>
